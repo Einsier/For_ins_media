@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ins Media</title>
+    <style type="text/css">
+        *{
+            padding: 0;
+            margin: 0;
+        }
+
+        /* 名称 */
+        .title{
+            text-align: center;
+            font-size: 25px;
+            font-weight: bold;
+            color: #9370DB;
+            margin-top: 100px;
+            margin-bottom: 20px;
+            font-family: fantasy;
+        }
+
+        /* 下面是搜索框样式 */
+        .searchBox{
+            width: 40%;
+            height: 35px;
+            border: 1px solid #6A5ACD;
+            outline: hidden;
+            border-radius: 2px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .inputBox{
+            border: none;
+            width: 84%;
+            height: 35px;
+            line-height: 35px;
+            outline: none;
+            padding-left: 10px;
+            /* 改变光标的颜色 */
+            caret-color:#6A5ACD;
+            font-size: 14px;
+        }
+
+        .searchBtn{
+            width: 65px;
+            height: 35px;
+            border: none;
+            position: absolute;
+            right: 0;
+            outline: none;
+            color: white;
+            font-size: 15px;
+            background-color: #9370DB
+        }
+        
+        .result{
+            
+            text-align: center;
+
+        }
+    </style>
+</head>
+<body>
+<div class="title">
+    <p>Get &nbsp;Ins&nbsp; Media</p>
+</div>
+<div class="searchBox">
+    <form action ='/getInsMedia' method='post'>
+        <input class="inputBox" name="url" placeholder="https://www.instagram.com/p/...">
+        <button type="submit" class="searchBtn">Get</button>
+    </form>
+</div>
+<br/><br/>
+<div class="result">
+            {% for media in media_list %}
+                <tr>
+                <td><a href={{ media.url }}>to the {{ media.type }}</a></td>
+                <br/>
+                </tr>
+            {% endfor %}
+            <h3>{{ tip }}</h3>
+<div>
+</body>
+</html>
